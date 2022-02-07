@@ -5,27 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock! Paper! Scissors!</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
         body{
             display: flex;
             flex-direction: column;
             justify-content: center;
+            font-size:larger;
+            
             
         }
         button{
-            width: 100px;
+            width: auto;
             color:white;
             background-color: blue;
+            padding: 50px;
+            font-size: large;
+            border: 10px solid black;
+            border-radius: 10px;
                
+        }
+        .buttons{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            gap:10px;
+            
+        }
+        button:focus{
+            background-color:red;
         }
     </style>
 </head>
 <body>
-   <button onclick="startGame()">Play</button>
-   <br>
-   <p>Click to play five rounds</p>
-   <p id="results"></p>
+   <div class="buttons">  
+   <button id="rock">Rock ✊ </button>
+   <button id="paper">Paper 👋 </button>
+   <button id="scissors">Scissors ✌️ </button>
+   <button id="reset">Reset 🔄</button>
+   </div>
+  <br>
+   <p>Click to start</p>
+   <div id="results"></div>
    
 </body>
 </html>

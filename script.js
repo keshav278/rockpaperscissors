@@ -36,7 +36,7 @@ function round(playerSelection,compSelection){
     return result;
 }    
 
-    function startGame(){
+    /*function startGame(){
     let p=0;
     let c=0;
 
@@ -60,5 +60,56 @@ function round(playerSelection,compSelection){
     else 
     document.getElementById("results").innerHTML+=`The game is tied by ${p}-${c}`;   //console.log(`The game is tied by ${p}-${c}`);
 }
+*/
+let p=0;
+let c=0;
+const container = document.querySelector('#results');
 
+function playRound(player){
+          let comp=computerPlay();
+          let string=round(player,comp);
+          let colon=string.indexOf(":");
+          const content= document.createElement('p');
+          if(string[colon+6]==='w')
+           p++;
+          else if(string[colon+6]==='l')
+           c++;
+          
+          if(p===5)
+           {content.textContent=string+` :You win the game by ${p}-${c}   ||Click reset to restart`;
+           container.appendChild(content);
+            p=0;
+            c=0;}
+          else if(c===5) 
+           {content.textContent=string+` :You lose the game by ${p}-${c}   ||Click reset to restart`;
+            p=0;
+            c=0;
+            container.appendChild(content);}
+           else
+            {content.textContent=string+` : Score is ${p}-${c}`+"\n\n";
+            container.appendChild(content);}
+              
 
+}
+
+const rock=document.querySelector('#rock');
+const paper=document.querySelector('#paper');
+const scissors=document.querySelector('#scissors');
+const reset = document.querySelector('#reset');
+
+rock.addEventListener('click',()=>{
+    playRound('rock');
+});
+
+paper.addEventListener('click',() => {
+    playRound('paper');
+});
+
+scissors.addEventListener('click',() =>{
+    playRound('scissors');
+});
+
+reset.addEventListener('click',() =>{
+    document.getElementById('results').innerHTML='';
+})
+ 

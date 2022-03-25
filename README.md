@@ -1,2 +1,3 @@
-# theodinproject-js1
+# rockpaperscissors
+
 A rock-paper-scissors game
